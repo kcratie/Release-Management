@@ -1,0 +1,13 @@
+#! /bin/bash
+
+edgev_start() {
+    cd /opt/edge-vpn
+    ./tincan &
+    source edgev-venv/bin/activate
+    python -m controller.Controller -c /etc/opt/edge-vpn/config.json &
+    #ryu-manager --default-log-level 20 --nouse-stderr ./controller/modules/BoundedFlood.py &
+    #iperf -sD
+}
+
+edgev_start
+exit

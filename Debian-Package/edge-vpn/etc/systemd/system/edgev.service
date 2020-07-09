@@ -1,0 +1,12 @@
+[Unit]
+Description=EdgeVPN service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/edge-vpn/edgev-start
+RemainAfterExit=true
+Restart=no
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

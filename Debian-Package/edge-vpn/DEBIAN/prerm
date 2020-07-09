@@ -1,0 +1,12 @@
+#!/bin/bash
+
+systemctl -q is-active edgev && systemctl -q stop edgev || true
+systemctl -q is-enabled edgev && systemctl -q disable edgev || true
+rm -rf /opt/edge-vpn/edgev-venv
+if [ -d /opt/edge-vpn/controller ]; then
+  for dir in $(find /opt/edge-vpn/controller -type d -name __pycache__); do
+     rm -rf "$dir"
+  done
+fi
+exit 0
+

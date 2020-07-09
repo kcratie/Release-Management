@@ -416,8 +416,8 @@ class DockerTestbed(Testbed):
         img = Testbed.BF_VIRT_IMG
         cmd = "/sbin/init"
         cmd_list = [DockerTestbed.VIRT, "run", opts, "-v", mount_cfg, "-v", mount_log,
-                    "-v", mount_data, args[0], args[1], "--name", container,
-                    "--network", self.network_name, img, cmd]
+                    args[0], args[1], "--name", container, "--network", self.network_name,
+                    img, cmd]
         if self.args.verbose:
             print(cmd_list)
         resp = Testbed.runshell(cmd_list)
